@@ -1,0 +1,42 @@
+name: Release PCM Archive
+
+on:
+  push:
+    tags:
+      - '*'
+    branches:
+      - '**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Make script executable
+        run: chmod +x create_pcm_archive.sh
+      
+      - name: Create PCM archive
+        run: ./create_pcm_archive.sh
+      
+      - name: Create Release (draft)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          draft: true
+          files: .out/*.zip
+      
+      - name: Upload artifact (non-release)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pcm-archive
+          path: .out/*.zip
+          include-hidden-files: true

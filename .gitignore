@@ -1,0 +1,43 @@
+# ============================================
+# 项目根目录 .gitignore
+# ============================================
+
+# Build output
+build/
+out/
+*.o
+*.obj
+*.elf
+*.hex
+*.bin
+*.map
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.suo
+*.ncb
+*.sdf
+
+# Compiled objects
+*.lib
+*.dll
+*.exp
+*.ilk
+*.pdb
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Hardware binary files (use Git LFS)
+*.SchDoc
+*.PcbDoc
+*.IntLib
+*.SchLib
+*.PcbLib
+*.zip
+
+# Logs
+*.log

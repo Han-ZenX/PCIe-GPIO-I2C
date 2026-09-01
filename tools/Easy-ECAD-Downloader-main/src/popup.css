@@ -1,0 +1,302 @@
+/*
+ * Popup styles for the extension. This keeps the UI small, readable,
+ * and consistent, with clear hierarchy for the part id, action button, and
+ * status messaging.
+ */
+
+/* Base colors and global settings. */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: #f2f4f7 url("assets/popup-bg.png") no-repeat center / cover;
+}
+
+/* Page-level defaults for the popup. */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #1c1f24;
+}
+
+/* Main card container. */
+.card {
+  width: 260px;
+  padding: 16px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Title styling. */
+h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1663d6;
+}
+
+/* Row layout for label/value pairs. */
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+/* Preview section with two image cards. */
+.previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preview-title {
+  font-size: 11px;
+  color: #5b6470;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.preview-box {
+  height: 90px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview-image.samacsys-preview-image {
+  filter: grayscale(1) saturate(0) brightness(0.58) contrast(12);
+  mix-blend-mode: multiply;
+}
+
+.preview-image.hidden {
+  display: none;
+}
+
+.preview-fallback {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.preview-fallback.hidden {
+  display: none;
+}
+
+/* Muted label text. */
+.label {
+  color: #5b6470;
+}
+
+/* Emphasized value text. */
+.value {
+  font-weight: 600;
+}
+
+/* Primary call-to-action button. */
+.primary {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: #1663d6;
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Disabled button state. */
+.primary:disabled {
+  background: #9bb5dd;
+  cursor: not-allowed;
+}
+
+.secondary {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 7px 10px;
+  background: #ffffff;
+  color: #1c1f24;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.secondary:hover,
+.secondary:focus {
+  border-color: #1663d6;
+}
+
+/* Download option list layout. */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+/* Settings block with helper text. */
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+  font-size: 12px;
+}
+
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-label {
+  color: #1c1f24;
+}
+
+.settings-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+  color: #1c1f24;
+  background: #ffffff;
+}
+
+.settings-input:focus {
+  outline: 2px solid rgba(22, 99, 214, 0.18);
+  outline-offset: 1px;
+  border-color: #1663d6;
+}
+
+.settings-input:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.settings-readonly {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: #f8fafc;
+  color: #5b6470;
+  line-height: 1.4;
+}
+
+.settings-hint {
+  margin: 0;
+  color: #5b6470;
+  font-size: 11px;
+}
+
+.settings-actions {
+  display: flex;
+}
+
+.settings-button {
+  align-self: center;
+}
+
+.advanced-settings {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 8px;
+}
+
+.advanced-settings summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.advanced-settings summary::-webkit-details-marker {
+  display: none;
+}
+
+.advanced-settings[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual option row. */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1c1f24;
+}
+
+.option.disabled {
+  color: #94a3b8;
+}
+
+/* Checkbox alignment tweaks. */
+.option input {
+  margin: 0;
+}
+
+/* Status line beneath the options. */
+.status {
+  margin: 0;
+  font-size: 12px;
+  color: #4a5568;
+  min-height: 16px;
+  text-align: center;
+}
+
+.status:empty {
+  display: none;
+}
+
+/* Error state for status messages. */
+.status.error {
+  color: #b42318;
+}
+
+.status.warning {
+  color: #9a6700;
+}
+
+.footer {
+  margin: 0;
+  font-size: 10px;
+  color: #5b6470;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.footer-link {
+  color: #1663d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  text-decoration: underline;
+}

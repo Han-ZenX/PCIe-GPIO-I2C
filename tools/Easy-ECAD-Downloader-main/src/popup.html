@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Easy ECAD Downloader</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Easy ECAD Downloader</h1>
+      <div class="row">
+        <span class="label">Mfr. Part #</span>
+        <span id="manufacturerPartNumber" class="value">Searching...</span>
+      </div>
+      <div class="row">
+        <span id="sourcePartLabel" class="label">Part</span>
+        <span id="partNumber" class="value">Searching...</span>
+      </div>
+      <div class="previews" aria-label="Previews">
+        <div class="preview-card">
+          <div class="preview-title">Symbol</div>
+          <div class="preview-box">
+            <img id="symbolPreview" class="preview-image" alt="Symbol preview" />
+            <div id="symbolPreviewFallback" class="preview-fallback">Loading...</div>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-title">Footprint</div>
+          <div class="preview-box">
+            <img id="footprintPreview" class="preview-image" alt="Footprint preview" />
+            <div id="footprintPreviewFallback" class="preview-fallback">Loading...</div>
+          </div>
+        </div>
+      </div>
+      <button id="downloadButton" class="primary" disabled>Download</button>
+      <div class="options" role="group" aria-label="Download options">
+        <label class="option">
+          <input type="checkbox" id="downloadSymbol" checked />
+          Symbol
+        </label>
+        <label class="option">
+          <input type="checkbox" id="downloadFootprint" checked />
+          Footprint
+        </label>
+        <label class="option">
+          <input type="checkbox" id="downloadModel" checked />
+          3D Model
+        </label>
+        <label class="option" id="downloadDatasheetOption">
+          <input type="checkbox" id="downloadDatasheet" />
+          <span id="downloadDatasheetLabel">Datasheet</span>
+        </label>
+      </div>
+      <section class="settings" aria-label="Settings">
+        <button id="settingsButton" type="button" class="secondary settings-button">
+          Open settings
+        </button>
+      </section>
+      <p id="status" class="status" aria-live="polite"></p>
+      <p class="footer">
+        Visit the <a class="footer-link" href="https://github.com/JoeShade/Easy-ECAD-Downloader" target="_blank" rel="noopener">GitHub</a> page for more information.
+      </p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

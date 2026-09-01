@@ -1,0 +1,32 @@
+{
+    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "name": "JLCPCB/LCSC Library Loader",
+    "description": "Browse and download parts from JLCPCB/LCSC.",
+    "description_full": "Find symbols/footprints with 3D models on JLCPCB/LCSC and use them in your KiCad project. Uses native KiCad importer.",
+    "identifier": "com.github.dsa-t.jlc-kicad-lib-loader",
+    "type": "plugin",
+    "author": {
+        "name": "dsa-t",
+        "contact": {
+        }
+    },
+    "license": "MIT",
+    "resources": {
+        "homepage": "https://github.com/dsa-t/jlc-kicad-lib-loader"
+    },
+    "tags": [
+        "pcbnew",
+        "models",
+        "easyeda",
+        "jlc"
+    ],
+    "versions": [
+        {
+            "version": "1.0.10",
+            "status": "stable",
+            "kicad_version": "8.0.7",
+            "kicad_version_max": "10.0"
+        }
+    ]
+}
+
